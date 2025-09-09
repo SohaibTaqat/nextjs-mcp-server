@@ -1,7 +1,7 @@
-    import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 
-const origin = process.argv[2] || "https://nextjs-mcp-server-eta.vercel.app";
+const origin = process.argv[2] || "https://nextjs-mcp-server-eta.vercel.app/api/mcp1";
 
 async function main() {
   const transport = new StreamableHTTPClientTransport(new URL(`${origin}/mcp`));
@@ -11,6 +11,13 @@ async function main() {
       name: "example-client",
       version: "1.0.0",
     },
+    {
+      capabilities: {
+        prompts: {},
+        resources: {},
+        tools: {},
+      },
+    }
   );
 
   await client.connect(transport);
