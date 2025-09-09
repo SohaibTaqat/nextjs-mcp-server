@@ -1,5 +1,6 @@
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
+import { tr } from "zod/v4/locales";
 
 // StreamableHttp server
 const handler = createMcpHandler(
@@ -31,6 +32,7 @@ const handler = createMcpHandler(
     basePath: "/api/mcp1",
     verboseLogs: true,
     maxDuration: 60,
+    disableSse: true,
   },
 );
 
