@@ -1,7 +1,7 @@
     import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 
-const origin = process.argv[2] || "http://localhost:3000/api/mcp1/mcp";
+const origin = process.argv[2] || "https://nextjs-mcp-server-eta.vercel.app/api/mcp1/mcp";
 
 async function main() {
   const transport = new StreamableHTTPClientTransport(new URL(`${origin}/mcp`));
