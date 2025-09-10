@@ -1,6 +1,5 @@
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
-import { tr } from "zod/v4/locales";
 
 // StreamableHttp server
 const handler = createMcpHandler(
@@ -13,6 +12,16 @@ const handler = createMcpHandler(
       },
       async ({ city }) => ({
         content: [{ type: "text", text: `The weather in ${city} is sunny and bright` }],
+      }),
+    ),
+    server.tool(
+      "get_time",
+      "Get the current time for a specified city",
+      {
+        city: z.string(),
+      },
+      async ({ city }) => ({
+        content: [{ type: "text", text: `The time in ${city} is 5 o'clock` }],
       }),
     );
   },
